@@ -1,0 +1,37 @@
+﻿@model MyLoginPage.Models.UserClass
+@{
+    ViewBag.Title = "Login";
+}
+@*@{
+    Layout = null;
+    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+    Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(-1));
+    Response.Cache.SetNoStore();
+}*@
+
+
+<body>
+    <div class="login-wrapper">
+        <div class="login_container">
+            <h2 id="login">Login</h2>
+
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+            {
+                <p>@Html.LabelFor(m => m.USERID)</p>
+                <p>@Html.TextBoxFor(m => m.USERID, new { @class = "form-control" })</p>
+                <br />
+                <p>@Html.LabelFor(m => m.PASSWORD)</p>
+                <p>@Html.PasswordFor(m => m.PASSWORD, new { @class = "form-control" })</p>
+                <br />
+                <p id="loginBtn"><input type="submit" value="Login" /></p>
+
+                <p style="color:red;">@ViewBag.Message</p>
+
+                <p id="statement">New user? <a href="@Url.Action("Register", "Account")">Sign up here</a></p>
+            }
+
+        </div>
+    </div>
+</body>
+
+

@@ -1,0 +1,46 @@
+﻿@model MyLoginPage.Models.StudentDetails
+
+@{
+    ViewBag.Title = "Edit Details";
+}
+@*@{
+    if (Session["USERID"] == null)
+    {
+        Response.Redirect("~/Account/Login");
+    }
+}*@
+
+<body>
+    <div class="edit_wrapper">
+        <div class="edit_container">
+            <h2>Edit Your Details</h2>
+            @using (Html.BeginForm("EditDetails", "Student", FormMethod.Post))
+            {
+                @Html.HiddenFor(m => m.ID)
+
+                <p>@Html.LabelFor(m => m.NAME)</p>
+                <p>@Html.TextBoxFor(m => m.NAME, new { @class = "form-control" })</p>
+
+                <p>@Html.LabelFor(m => m.BRANCH)</p>
+                <p>@Html.TextBoxFor(m => m.BRANCH, new { @class = "form-control" })</p>
+
+                <p>@Html.LabelFor(m => m.MOBILENO)</p>
+                <p>@Html.TextBoxFor(m => m.MOBILENO, new { @class = "form-control" })</p>
+
+                <p>@Html.LabelFor(m => m.ADDRESS)</p>
+                <p>@Html.TextBoxFor(m => m.ADDRESS, new { @class = "form-control" })</p>
+
+                <br />
+                <input type="submit" value="Save Changes" class="btn btn-success" />
+            }
+        </div>
+    </div>
+    @*<script>
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            window.history.pushState(null, null, window.location.href);
+        };
+    </script>*@
+
+</body>
+

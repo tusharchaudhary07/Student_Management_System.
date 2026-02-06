@@ -1,0 +1,26 @@
+﻿@model MyLoginPage.Models.UserClass
+@{
+    ViewBag.Title = "Register";
+}
+
+    <body>
+        <div class="register_wrapper">
+            <div class="register_container">
+
+
+                <h2>Student Sign Up</h2>
+                @using (Html.BeginForm())
+                {
+                    <p>@Html.LabelFor(m => m.USERID)</p>
+                    <p>@Html.TextBoxFor(m => m.USERID, new { @class = "form-control" })</p>
+
+                    <p>@Html.LabelFor(m => m.PASSWORD)</p>
+                    <p>@Html.PasswordFor(m => m.PASSWORD, new { @class = "form-control" })</p>
+
+                    <p id="register_btn"><input type="submit" value="Register" /></p>
+
+                    <p id="statement_register" style="color:green;">@ViewBag.Message</p>
+                }
+            </div>
+        </div>
+    </body>

@@ -1,0 +1,52 @@
+﻿@model MyLoginPage.Models.StudentDetails
+@{
+    ViewBag.Title = "SubmitDetails";
+}
+@*@{
+    if (Session["USERID"] == null)
+    {
+        Response.Redirect("~/Account/Login");
+    }
+}*@
+
+    <body>
+        <a href="@Url.Action("Login", "Account")" class="logout-button">Log Out</a>
+
+        <div class="Submit_wrapper">
+            <img src="~/Content/images/pencil image 1.jpg" style="height:400px;width:400px; margin-right:30px;border-radius:50%; border:2px solid indigo;" />
+            <div class="Submit_container">
+                <h2 id="Submit_heading">Submit Student Details</h2>
+
+                @using (Html.BeginForm("SubmitDetails", "Student", FormMethod.Post))
+                {
+                    @Html.HiddenFor(m => m.USERID, new { Value = Session["USERID"]?.ToString() })
+
+                    <p> @Html.LabelFor(m => m.NAME)</p>
+                    <p>@Html.TextBoxFor(m => m.NAME, new { @class = "form-control" })</p>
+
+                    <p>@Html.LabelFor(m => m.BRANCH)</p>
+                    <p>@Html.TextBoxFor(m => m.BRANCH, new { @class = "form-control" })</p>
+
+                    <p>@Html.LabelFor(m => m.MOBILENO)</p>
+                    <p>@Html.TextBoxFor(m => m.MOBILENO, new { @class = "form-control" })</p>
+
+                    <p>@Html.LabelFor(m => m.ADDRESS)</p>
+                    <p>@Html.TextAreaFor(m => m.ADDRESS, new { @class = "form-control" })</p>
+
+                    <br />
+                    <input type="submit" value="Submit" class="btn_submit" />
+                }
+            </div>
+        </div>
+        @*<script>
+            window.history.pushState(null, null, window.location.href);
+            window.onpopstate = function () {
+                window.history.pushState(null, null, window.location.href);
+            };
+        </script>*@
+
+
+
+
+
+    </body>

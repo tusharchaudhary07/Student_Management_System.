@@ -1,0 +1,25 @@
+﻿@model List<MyLoginPage.Models.UserClass>
+    <div class="admin_wrapper">
+        <a href="@Url.Action("Login", "Account")"  class="logout-button" >Log Out</a>
+        <h2 id="admin_heading">Admin Dashboard - Registered Users</h2>
+        <a href="@Url.Action("ViewSubmissions", "Admin")">View All Submissions</a>
+
+
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.USERID</td>
+                        <td>@user.ROLE</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

@@ -1,0 +1,41 @@
+﻿@model MyLoginPage.Models.StudentDetails
+
+@{
+    ViewBag.Title = "Student Profile";
+}
+@*@{
+    if (Session["USERID"] == null)
+    {
+        Response.Redirect("~/Account/Login");
+    }
+}*@
+
+    <body>
+        <a href="@Url.Action("Login", "Account")" class="logout-button">Log Out</a>
+        <div class="profile_wrapper">
+
+            <div class="profile_container">
+                <h2 id="profile_heading">Your Submitted Details</h2>
+
+                <p><strong>Name:</strong> @Model.NAME</p>
+                <p><strong>Branch:</strong> @Model.BRANCH</p>
+                <p><strong>Mobile No:</strong> @Model.MOBILENO</p>
+                <p><strong>Address:</strong> @Model.ADDRESS</p>
+
+                <br />
+                <a class="EditBtn" href="@Url.Action("EditDetails", "Student")">Edit</a>&nbsp;
+                <img src="~/Content/images/edit image.png" style="width:30px;height:25px;margin-bottom:5px;" />
+            </div>
+
+            <img src="~/Content/images/profile.png" style="margin-left:100px;height:400px;width:400px;" />
+        </div>
+       
+        @*<script>
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+        window.history.pushState(null, null, window.location.href);
+    };
+        </script>*@
+
+
+    </body>

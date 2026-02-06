@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <!-- CSS Files -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css?v=@DateTime.Now.Ticks" rel="stylesheet" />
+    <link href="~/Content/Custom.css?v=@DateTime.Now.Ticks" rel="stylesheet" />
+
+    <!-- Modernizr (for old browser compatibility) -->
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</head>
+
+<body>
+    <!-- Optional Navbar -->
+   
+
+    <!-- Main Content -->
+    <div class="container body-content mt-4">
+        @RenderBody()
+        <hr />
+       
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
